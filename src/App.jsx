@@ -209,7 +209,16 @@ const App = () => {
   return (
     <div className={`container ${getWeatherBackgroundClass()}`}>
       <div className="container-input">
-        <input type="text" id="location-input" placeholder="Enter location" />
+        <input
+          type="text"
+          id="location-input"
+          placeholder="Enter location"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch();
+            }
+          }}
+        />
         <button type="submit" id="search-button" onClick={handleSearch}>
           <IconContext.Provider
             value={{
